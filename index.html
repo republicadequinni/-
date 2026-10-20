@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>República Nésica de Quinni</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #0d1b4c;
+            color: #172044;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        /* =========================
+           TOPO
+        ========================= */
+
+        .topo {
+            height: 70px;
+            background: #050505;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .topo-conteudo {
+            width: 100%;
+            max-width: 1250px;
+            margin: auto;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .simbolo {
+            color: #f3d66b;
+            font-size: 25px;
+        }
+
+        .nome-topo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #eee;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+
+        nav a:hover {
+            color: #f3d66b;
+        }
+
+        /* =========================
+           BANDEIRA
+        ========================= */
+
+        .hero {
+            background: #000;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero img {
+            width: 100%;
+            max-height: 720px;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* =========================
+           TÍTULO
+        ========================= */
+
+        .titulo-republica {
+            background: #f3d66b;
+            padding: 70px 20px 75px;
+            text-align: center;
+        }
+
+        .titulo-republica h1 {
+            margin: 0;
+            color: #101e50;
+            font-size: clamp(40px, 6vw, 78px);
+            font-weight: normal;
+            letter-spacing: -2px;
+        }
+
+        .titulo-republica p {
+            margin: 18px 0 0;
+            color: #35436f;
+            font-size: 16px;
+        }
+
+        /* =========================
+           ÁREA AZUL
+        ========================= */
+
+        .area {
+            background: #0d1b4c;
+            padding: 55px 30px;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .area::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 8%;
+            width: 5px;
+            background: white;
+        }
+
+        .area::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 8%;
+            width: 5px;
+            background: white;
+        }
+
+        /* =========================
+           CONTEÚDO
+        ========================= */
+
+        .conteudo {
+            max-width: 1050px;
+            margin: 0 auto;
+            background: #f3d66b;
+            padding: 90px 70px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .conteudo + .conteudo {
+            margin-top: 45px;
+        }
+
+        /* =========================
+           TÍTULOS
+        ========================= */
+
+        .titulo-secao {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .titulo-secao h2 {
+            margin: 0;
+            color: #101e50;
+            font-size: clamp(34px, 5vw, 54px);
+            font-weight: normal;
+        }
+
+        .titulo-secao h4 {
+            margin: 14px 0 0;
+            color: #101e50;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 17px;
+            font-weight: normal;
+            line-height: 1.5;
+        }
+
+        .linha {
+            width: 38px;
+            height: 2px;
+            background: #101e50;
+            margin: 22px auto 0;
+        }
+
+        /* =========================
+           PUBLICAÇÕES
+        ========================= */
+
+        .post {
+            max-width: 760px;
+            margin: auto;
+            border-top: 1px solid #d1b84e;
+            padding-top: 28px;
+        }
+
+        .post-topo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        /* FOTO DE PERFIL */
+
+        .avatar {
+            width: 46px;
+            height: 46px;
+            border: 1px solid #172044;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #101e50;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .autor {
+            color: #101e50;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        .cargo {
+            color: #59658a;
+            margin-top: 4px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+
+        .data {
+            margin-left: auto;
+            color: #59658a;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+
+        .post-texto {
+            margin-top: 25px;
+            color: #25335f;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .acoes {
+            margin-top: 24px;
+            display: flex;
+            gap: 25px;
+        }
+
+        .acoes button {
+            background: none;
+            border: none;
+            padding: 0;
+            color: #59658a;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .acoes button:hover {
+            color: #101e50;
+        }
+
+        .comentarios {
+            display: none;
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid #d1b84e;
+            color: #59658a;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+
+        /* =========================
+           REPÚBLICA
+        ========================= */
+
+        .republica-texto {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: #25335f;
+            font-size: 18px;
+            line-height: 1.9;
+        }
+
+        .republica-texto p {
+            margin: 0 0 25px;
+        }
+
+        /* =========================
+           DADOS
+        ========================= */
+
+        .dados-texto {
+            max-width: 780px;
+            margin: auto;
+            color: #25335f;
+            font-size: 17px;
+            line-height: 2;
+        }
+
+        .dados-texto p {
+            margin: 0;
+        }
+
+        .dados-texto strong {
+            color: #101e50;
+            font-weight: normal;
+        }
+
+        /* =========================
+           GOVERNO
+        ========================= */
+
+        .governo-grid {
+            max-width: 850px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid #d1b84e;
+        }
+
+        .governo-item {
+            padding: 32px;
+            min-height: 150px;
+            border: 1px solid #d1b84e;
+        }
+
+        .governo-item h3 {
+            margin: 0 0 12px;
+            color: #101e50;
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        .governo-item p {
+            margin: 0;
+            color: #59658a;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            margin-top: 0;
+            padding: 60px 20px;
+            background: #081333;
+            color: #aeb8d4;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .topo {
+                height: 62px;
+            }
+
+            .topo-conteudo {
+                padding: 0 18px;
+            }
+
+            .nome-topo {
+                display: none;
+            }
+
+            nav {
+                gap: 16px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero img {
+                min-height: 280px;
+            }
+
+            .titulo-republica {
+                padding: 50px 15px 55px;
+            }
+
+            .titulo-republica h1 {
+                letter-spacing: -1px;
+            }
+
+            .area {
+                padding: 20px 10px;
+            }
+
+            .area::before {
+                left: 3%;
+                width: 4px;
+            }
+
+            .area::after {
+                right: 3%;
+                width: 4px;
+            }
+
+            .conteudo {
+                padding: 65px 22px;
+            }
+
+            .governo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .post-topo {
+                align-items: flex-start;
+            }
+
+            .data {
+                margin-left: 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <div class="topo-conteudo">
+
+            <div class="simbolo">
+                ☼
+            </div>
+
+            <div class="nome-topo">
+                República Nésica de Quinni
+            </div>
+
+            <nav>
+                <a href="#inicio">Início</a>
+                <a href="#publicacoes">Blog</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+    <div class="hero" id="inicio">
+
+        <img
+            src="https://www.image2url.com/r2/default/images/1789673484318-ff410477-934a-4f64-bd49-e773ff039af3.png"
+            alt="Bandeira de Quinni"
+        >
+
+    </div>
+
+    <div class="area">
+
+        <section class="conteudo" id="publicacoes">
+
+            <div class="titulo-secao">
+
+                <h2>
+                    Publicações
+                </h2>
+
+                <h4>
+                    O presidente vai apresentar notícias nesse único balão de post.
+                </h4>
+
+                <div class="linha"></div>
+
+            </div>
+
+            <article class="post">
+
+                <div class="post-topo">
+
+                    <div class="avatar">
+
+                        <img
+                            src="https://cdn.phototourl.com/member/2026-09-07-70ca871a-018b-4e19-9b4b-267625a06998.jpg"
+                            alt="Foto de perfil do Presidente de Quinni"
+                        >
+
+                    </div>
+
+                    <div>
+
+                        <div class="autor">
+                            presidente numquidito
+                        </div>
+
+                        <div class="cargo">
+                            Presidência da República
+                        </div>
+
+                    </div>
+
+                    <div class="data">
+                        sábado, 12/9/26
+                    </div>
+
+                </div>
+
+                <div class="post-texto">
+                    to precisando de uma bandeira de tecido, a outra de papel rasgou
+                </div>
+
+                <div class="acoes">
+
+                    <button onclick="curtir(this)" data-curtido="nao">
+                        ♡ <span>0</span>
+                    </button>
+
+                    <button onclick="mostrarComentarios(this)">
+                        Comentários
+                    </button>
+
+                </div>
+
+                <div class="comentarios">
+                    ✪ OBS: Nenhum.
+                </div>
+
+            </article>
+
+        </section>
+
+        <!-- A REPÚBLICA -->
+
+        <section class="conteudo">
+
+            <div class="titulo-secao">
+
+                <h2>
+                    A República
+                </h2>
+
+                <div class="linha"></div>
+
+            </div>
+
+            <div class="republica-texto">
+
+                <p>
+                    A República Nésica de Quinni é uma
+                    micronação brasileira, criada por diversão (atualmente levada a sério)
+                    com Reconhecimento do Reino de Flumenostre e o Reino de Prashayadesh.
+                </p>
+
+                <p>
+                    Quinni possui suas próprias instituições,
+                    símbolos nacionais e documentos oficiais.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- DADOS OFICIAIS -->
+
+        <section class="conteudo">
+
+            <div class="titulo-secao">
+
+                <h2>
+                    Dados Oficiais
+                </h2>
+
+                <div class="linha"></div>
+
+            </div>
+
+            <div class="dados-texto">
+
+                <p>
+                    <strong>Nome oficial:</strong>
+                    República Nésica de Quinni
+                </p>
+
+                <p>
+                    <strong>Forma de governo:</strong>
+                    República
+                </p>
+
+                <p>
+                    <strong>Chefe de Estado:</strong>
+                    Presidente da República
+                </p>
+
+                <p>
+                    <strong>Religião oficial:</strong>
+                    Não possui
+                </p>
+
+                <p>
+                    <strong>Idioma:</strong>
+                    Português, Quinno.
+                </p>
+
+                <p>
+                    <strong>Capital:</strong>
+                    Pátio Q
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- GOVERNO -->
+
+        <section class="conteudo">
+
+            <div class="titulo-secao">
+
+                <h2>
+                    Governo
+                </h2>
+
+                <div class="linha"></div>
+
+            </div>
+
+            <div class="governo-grid">
+
+                <div class="governo-item">
+
+                    <h3>
+                        Presidência
+                    </h3>
+
+                    <p>
+                        Órgão responsável pela chefia do Estado
+                        e pelas decisões da República.
+                    </p>
+
+                </div>
+
+                <div class="governo-item">
+
+                    <h3>
+                        Administração
+                    </h3>
+
+                    <p>
+                        Organização dos assuntos internos
+                        e funcionamento das instituições
+                        de Quinni.
+                    </p>
+
+                </div>
+
+                <div class="governo-item">
+
+                    <h3>
+                        Documentos
+                    </h3>
+
+                    <p>
+                        Constituição, leis, decretos e outros
+                        documentos oficiais da República.
+                    </p>
+
+                </div>
+
+                <div class="governo-item">
+
+                    <h3>
+                        Diplomacia
+                    </h3>
+
+                    <p>
+                        Relações de Quinni com outras
+                        micronações e comunidades.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        República Nésica de Quinni
+
+        <br>
+        <br>
+
+        Portal oficial
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function curtir(botao) {
+
+            const contador = botao.querySelector("span");
+
+            let quantidade = Number(contador.innerText);
+
+            if (botao.dataset.curtido === "sim") {
+
+                quantidade--;
+                botao.dataset.curtido = "nao";
+                botao.innerHTML = "♡ <span>" + quantidade + "</span>";
+
+            } else {
+
+                quantidade++;
+                botao.dataset.curtido = "sim";
+                botao.innerHTML = "♥ <span>" + quantidade + "</span>";
+
+            }
+        }
+
+        function mostrarComentarios(botao) {
+
+            const comentarios = botao.parentElement.nextElementSibling;
+
+            if (
+                comentarios.style.display === "none" ||
+                comentarios.style.display === ""
+            ) {
+                comentarios.style.display = "block";
+            } else {
+                comentarios.style.display = "none";
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
